@@ -1,15 +1,22 @@
-let tasks = []; 
-let lastId = 0; 
-const { v4: uuidv4 } = require('uuid');
+const mongoose = require('mongoose');
 
-
-class Task {
-  constructor(title, description, status) {
-    this.id = uuidv4();;
-    this.title = title;
-    this.description = description;
-    this.status = status;
+const taskSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: String,
+    required: true,
+    enum: ['TODO', 'DONE'],
+    default: 'TODO'
   }
-}
+}, { timestamps: true });
 
-module.exports = { tasks, Task };
+const Task = mongoose.model('Task', taskSchema);
+
+module.exports = Task;
