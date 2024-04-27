@@ -10,7 +10,7 @@ async function createTask(req, res) {
   }
 }
 
-async function getAllTasks(req, res) {
+async function listTasks(req, res) {
   try {
     const tasks = await Task.find();
     res.json(tasks);
@@ -45,7 +45,7 @@ async function deleteTask(req, res) {
 
 module.exports = {
   createTask,
-  getAllTasks,
+  listTasks,
   updateTask,
   deleteTask
 };
