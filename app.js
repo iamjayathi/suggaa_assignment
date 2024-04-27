@@ -15,4 +15,4 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 const mongoDB_URI = 'mongodb+srv://jayathimishra2:hello@cluster0.ian2qrk.mongodb.net/';
 mongoose.connect(mongoDB_URI)
   .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .catch(err => console.error('MongoDB error:', err));
